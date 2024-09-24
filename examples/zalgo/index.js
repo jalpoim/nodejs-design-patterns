@@ -3,7 +3,7 @@ import { readFile } from "fs";
 const cache = new Map();
 
 /* One of the most dangerous situations is having an API which behaves synchronously under certain situations
-and asynchronously under others. It behaves asynchronously un til the file is read for the first time and the cache is set
+and asynchronously under others. It behaves asynchronously until the file is read for the first time and the cache is set
 and after that it behaves synchronously for all the subsequent requests */
 function inconsistentRead(filename, cb) {
   if (cache.has(filename)) {
